@@ -1,6 +1,8 @@
 TITLE=doc
-FILE=$(TITLE).ms
 
-all: doc.ms
-	refer -p ~/Documents/roff/bib $(FILE) | groff -ms -U -T ps > doc.ps
-	ps2pdf doc.ps doc.pdf
+all: $(TITLE).ms
+	refer -p ~/Documents/roff/bib $(TITLE).ms | groff -ms -U -T ps > $(TITLE).ps
+	ps2pdf $(TITLE).ps $(TITLE).pdf
+
+clean:
+	rm -f *.ps *.pdf
